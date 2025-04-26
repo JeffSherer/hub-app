@@ -24,7 +24,7 @@ export default function Home() {
       // Add user message to chat history first
       setChatHistory(prev => [...prev, { role: 'user', content: prompt }]);
       
-      const res = await fetch(`http://localhost:8000/chatbot/${chatbot}?prompt=${encodeURIComponent(prompt)}`, {
+      const res = await fetch(`https://hub-app-ybxk.onrender.com/chatbot/${chatbot}?prompt=${encodeURIComponent(prompt)}`, {
         method: 'POST',
       });
       if (!res.ok) {
