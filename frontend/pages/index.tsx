@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import Link from 'next/link';
 
 interface Message {
   role: 'user' | 'bot';
@@ -50,9 +51,9 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center min-h-screen bg-gray-100 text-gray-800 p-4">
       <h1 className="text-4xl font-bold mb-2">Hub Chat</h1>
-      <a href="/train" className="text-blue-600 underline text-sm mb-4">
+      <Link href="/train" className="text-blue-600 underline text-sm mb-4">
         Submit a fine-tuning job →
-      </a>
+      </Link>
 
       <div className="flex flex-col items-center gap-4 mb-4">
         <select

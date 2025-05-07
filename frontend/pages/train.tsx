@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Train() {
   const [model, setModel] = useState('openai');
@@ -24,9 +25,9 @@ export default function Train() {
   return (
     <div className="p-8 max-w-xl mx-auto bg-gray-100 text-gray-800 min-h-screen">
       <h2 className="text-2xl font-bold mb-4">Fine-Tuning Job Submission</h2>
-      <a href="/" className="text-blue-600 underline text-sm mb-4 block">
+      <Link href="/" className="text-blue-600 underline text-sm mb-4 block">
         ← Back to chatbot
-      </a>
+      </Link>
       <div className="space-y-4">
         <select value={model} onChange={(e) => setModel(e.target.value)} className="w-full p-2 border rounded">
           <option value="openai">OpenAI</option>
