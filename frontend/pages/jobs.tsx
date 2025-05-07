@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 interface Job {
   model: string;
@@ -29,9 +30,9 @@ export default function Jobs() {
   return (
     <div className="p-8 max-w-3xl mx-auto text-gray-800 bg-gray-100 min-h-screen">
       <h2 className="text-2xl font-bold mb-6">Fine-Tuning Job History</h2>
-      <a href="/" className="text-blue-600 underline text-sm mb-4 block">
+      <Link href="/" className="text-blue-600 underline text-sm mb-4 block">
         ← Back to chatbot
-      </a>
+      </Link>
       {loading ? (
         <p>Loading jobs...</p>
       ) : jobs.length === 0 ? (
