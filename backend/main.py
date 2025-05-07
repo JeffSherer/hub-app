@@ -5,6 +5,7 @@ import os
 
 from api.chatbot import openai, claude
 from api.multimodal import gemini
+from routes.fine_tune import router as fine_tune_router
 
 # Load environment variables from .env file
 load_dotenv()
@@ -24,6 +25,7 @@ app.add_middleware(
 app.include_router(openai.router)
 app.include_router(claude.router)
 app.include_router(gemini.router)
+app.include_router(fine_tune_router)
 
 # Simple health check route
 @app.get("/health")
