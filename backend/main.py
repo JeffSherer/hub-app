@@ -3,9 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 import os
 
-from api.chatbot import openai, claude
-from api.multimodal import gemini
-from routes.fine_tune import router as fine_tune_router
+from routes.chatbot import openai, claude
+from routes.multimodal import gemini
+from routes.finetune import router as fine_tune_router
 
 # Load environment variables from .env file
 load_dotenv()
