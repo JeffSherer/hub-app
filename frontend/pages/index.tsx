@@ -21,22 +21,21 @@ export default function Home() {
     setLoading(true);
     setError('');
     try {
-      // Add user message to chat history first
       setChatHistory(prev => [...prev, { role: 'user', content: prompt }]);
-      
-      const res = await fetch(`https://hub-app-ybxk.onrender.com/chatbot/${chatbot}?prompt=${encodeURIComponent(prompt)}`, {
-        method: 'POST',
-      });
+
+      const res = await fetch(
+        `https://hub-app-ybxk.onrender.com/chatbot/${chatbot}?prompt=${encodeURIComponent(prompt)}`,
+        {
+          method: 'POST',
+        }
+      );
       if (!res.ok) {
         throw new Error('Failed to reach backend.');
       }
       const data = await res.json();
-      
-      // Add bot response to chat history
-      setChatHistory(prev => [...prev, { role: 'bot', content: data.response }]);
-      
-      setPrompt(''); // Clear input after sending
 
+      setChatHistory(prev => [...prev, { role: 'bot', content: data.response }]);
+      setPrompt('');
       setTimeout(() => {
         chatBottomRef.current?.scrollIntoView({ behavior: 'smooth' });
       }, 100);
